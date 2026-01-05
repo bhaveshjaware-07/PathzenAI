@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Interview Prep | Pathzen AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>Pathzen AI</h2>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/resume">Resume Analyzer</a></li>
+        <li><a href="/interview">Interview Prep</a></li>
+        <li><a href="/skills">Skill Guidance</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <h1>🎤 AI Interview Question Generator</h1>
+
+    <form method="POST">
+        <label>Select Job Role:</label><br><br>
+        <select name="role" required>
+            <option value="">-- Choose Role --</option>
+            <option value="python">Python Developer</option>
+            <option value="ai">AI / ML Engineer</option>
+            <option value="frontend">Frontend Developer</option>
+        </select>
+        <br><br>
+        <button type="submit">Generate Questions</button>
+    </form>
+
+    {% if questions %}
+        <h3>📋 Interview Questions</h3>
+        <ul class="skill-list">
+            {% for q in questions %}
+                <li>{{ q }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+</body>
+</html>

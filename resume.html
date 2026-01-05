@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Analyzer | Pathzen AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <h2>Pathzen AI</h2>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/resume">Resume Analyzer</a></li>
+        <li><a href="/interview">Interview Prep</a></li>
+        <li><a href="/skills">Skill Guidance</a></li>
+    </ul>
+</nav>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+    <h1>AI Resume Analyzer</h1>
+
+    <!-- UPLOAD FORM -->
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="resume" required>
+        <br><br>
+        <button type="submit">Analyze Resume</button>
+    </form>
+
+    <!-- EXTRACTED TEXT -->
+    {% if text %}
+        <h3>📄 Extracted Resume Text</h3>
+        <div class="result-box">
+            <pre>{{ text }}</pre>
+        </div>
+    {% endif %}
+
+    <!-- DETECTED SKILLS -->
+    {% if found_skills %}
+        <h3>✅ Detected Skills</h3>
+        <ul class="skill-list">
+            {% for skill in found_skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- MISSING SKILLS -->
+    {% if missing_skills %}
+        <h3>📈 Recommended Skills to Learn</h3>
+        <ul class="skill-list">
+            {% for skill in missing_skills %}
+                <li>{{ skill }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- RESUME SCORE -->
+    {% if score %}
+        <h3>📊 Resume Score</h3>
+        <div class="score-bar">
+            <div class="score-fill" data-score="{{ score }}">
+                {{ score }}%
+            </div>
+        </div>
+
+        <h3>🎯 Suggested Career Role</h3>
+        <p class="career">{{ career }}</p>
+    {% endif %}
+</div>
+
+<!-- JS FOR SCORE BAR -->
+<script>
+    const scoreFill = document.querySelector('.score-fill');
+    if (scoreFill) {
+        const score = scoreFill.getAttribute('data-score');
+        scoreFill.style.width = score + "%";
+    }
+</script>
+
+</body>
+</html>

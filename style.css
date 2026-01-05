@@ -1,0 +1,125 @@
+/* ===== GLOBAL ===== */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #1d2671, #c33764);
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding-top: 40px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin-left: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #ffdd57;
+}
+
+/* ===== FORM ===== */
+form input[type="file"] {
+    padding: 10px;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #000;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #333;
+}
+
+/* ===== RESULT BOX ===== */
+.result-box {
+    background: white;
+    color: black;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* ===== SKILL LIST ===== */
+.skill-list {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-list li {
+    background: #ffffff;
+    color: #000;
+    padding: 8px 15px;
+    margin: 6px 6px 6px 0;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 0.9rem;
+}
+
+/* ===== SCORE BAR ===== */
+.score-bar {
+    width: 100%;
+    background: #ddd;
+    border-radius: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.score-fill {
+    height: 25px;
+    width: 0%;
+    background: #4CAF50;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    transition: width 1s ease-in-out;
+}
+
+/* ===== CAREER TAG ===== */
+.career {
+    background: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 10px;
+}
